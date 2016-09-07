@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+body {
+  background-color: #E0887C;
+
+}
+  h1{
+    border-style: solid;
+    border-color: #CFDB79;
+    text-align: center;
+    color: #750E00;
+    font-family: Century Gothic;
+  }
+h2{
+  color: #5A1366 ;
+  
+}
+h3{
+  color: #14742D;
+}
+
+label.fieldLabel input {
+  position: absolute;
+  left: 300px;
+}
+
+label.fieldLabel {
+  display: block;
+  padding-bottom: 3 em;
+  margin-bottom: 2px;
+  position: relative;
+  left: 40 px;
+  overflow: visible;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #2F1C6B;
+}
+
+div.buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<script language = "JavaScript">c
+   
+ function validateForm(){
+    return validateEmail() && validatePassword() && validateFirstName() && validateLastName() && validatePhone;
+  }
+      
+  function validateEmail()
+  {
+    var email= document.logon.memberEmail.value;
+    if (email === null || email ===""){
+      alert ("Email cannot be blank");
+      return false; 
+    }
+    email = email.trim();
+    if (email.indexOf("@") <= 0) {
+      alert ("Email must contain an @");
+      return false;
+    }
+    if (email.lastIndexOf(".") >= email.length  - 2) {
+      alert ("Email must have a .");
+      return false;
+      }
+    if (email.lastIndexOf(".") < email.indexOf("@")) {
+      alert ("Email . must be after @");
+      return false;
+    }
+    return true;
+  }
+  
+    function validateFirstName()
+  {
+    var firstName= document.logon.firstName.value;
+    if (firstName === null || firstName ===""){
+      alert ("First Name cannot be blank");
+      return false; 
+    }
+    firstName = firstName.trim();
+    if (firstName.indexOf("0")> 0 || firstName.indexOf("1")> 0 || firstName.indexOf("2")> 0 || firstName.indexOf("3")> 0 || firstName.indexOf("4")> 0 || firstName.indexOf("5")> 0 || firstName.indexOf("6")> 0 || firstName.indexOf("7")> 0 || firstName.indexOf("8")> 0 || firstName.indexOf("9")> 0 || firstName.indexOf("!")> 0 || firstName.indexOf("@")> 0 || firstName.indexOf("#")> 0 || firstName.indexOf("$")> 0 || firstName.indexOf("$")> 0 || firstName.indexOf("%")> 0 || firstName.indexOf("^")> 0 || firstName.indexOf("&")> 0 || firstName.indexOf("*")> 0 || firstName.indexOf("(")> 0 || firstName.indexOf(")")> 0 || firstName.indexOf("_")> 0 || firstName.indexOf("-")> 0 || firstName.indexOf("=")> 0 || firstName.indexOf("+")> 0) {
+      alert ("First Name cannot contain special characters or numbers.");
+      return false;
+    }
+    return true;
+  }
+  
+  function validateLastName()
+  {
+    var lastName= document.logon.lastName.value;
+    if (lastName === null || lastName ===""){
+      alert ("Last Name cannot be blank");
+      return false; 
+    }
+    lastName = lastName.trim();
+    if (lastName.indexOf("0")> 0 || lastName.indexOf("1")> 0 || lastName.indexOf("2")> 0 || lastName.indexOf("3")> 0 || lastName.indexOf("4")> 0 || lastName.indexOf("5")> 0 || lastName.indexOf("6")> 0 || lastName.indexOf("7")> 0 || lastName.indexOf("8")> 0 || lastName.indexOf("9")> 0 || lastName.indexOf("!")> 0 || lastName.indexOf("@")> 0 || lastName.indexOf("#")> 0 || lastName.indexOf("$")> 0 || lastName.indexOf("$")> 0 || lastName.indexOf("%")> 0 || lastName.indexOf("^")> 0 || lastName.indexOf("&")> 0 || lastName.indexOf("*")> 0 || lastName.indexOf("(")> 0 || lastName.indexOf(")")> 0 || lastName.indexOf("_")> 0 || lastName.indexOf("-")> 0 || lastName.indexOf("=")> 0 || lastName.indexOf("+")> 0) {
+      alert ("Last Name cannot contain special characters or numbers.");
+      return false;
+    }
+    return true;
+  }
+  
+  function validatePassword()
+  {
+    var password1 = document.logon.password1.value;
+    var password2 = document.logon.password2.value;
+      //has at least 8 char
+    if (password1 == null || password1.length < 8) {
+      alert("Password must be at least 8 characters");
+      return false;
+    }
+   
+    if (password1.toLowerCase() === password1) {
+      alert("Password must contain at least one uppercase letter");
+      return false;
+    }
+      
+    if (password1 !== password2) {
+      alert ("Passwords must match");
+      return false;
+    }
+      
+    return true; 
+  }
+ 
+</script>
+   <h1>Grant Chirpus' Code Dojo
+  </h1>
+  <p> <a href="https://twitter.com/grantchirpus" target="_blank">Follow Grant Chirpus on Twitter!</a>
+  </p>
+  <h2> Coding classes</h2>
+  <ul> 
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JAVA</li>
+    <li>JavaScript</li>
+    <li>PHP</li>
+    <li>SQL</li>
+    <li>JQuery</li>
+  </ul>
+
+  <h3>Pick your experience level
+  </h3>
+  <form>
+  <input type="radio" name="level" value="beginner" checked> Beginner<br>
+   <input type="radio" name="level" value="intermediate"> Intermediate<br>
+  <input type="radio" name="level" value="experiencesd"> Experienced
+</form>
+
+
+<form name="logon" id="logon" action="" method="post">
+ <h3>Select a class...
+  </h3>
+  <select>
+   <option value="html">HTML</option>
+   <option value="css">CSS</option>
+   <option value="java">JAVA</option>
+   <option value="javascript">JavaScript</option>
+    <option value="php">PHP</option>
+    <option value="sql">SQL</option>
+    <option value="jquery">JQuery</option>
+</select>
+  <fieldset>
+    <form name="logon" id="logon" action="" method="post">
+     <label class="fieldLabel"> First Name:
+    <input type="text" name="firstName" size="32" maxlength="30" placeholder="Grant" /> 
+      <label class="fieldLabel"> Last Name:
+    <input type="text" name="lastName" size="32" maxlength="30" placeholder="Chirpus" /> 
+     <label class="fieldLabel"> Phone Number:
+    <input type="text" name="Phone" size="16" maxlength="10" placeholder="3135551234" /> 
+  <label class="fieldLabel"> Email:
+    <input type="text" name="memberEmail" size="32" maxlength="30" placeholder="grantchirpus@dojo.com" />   
+  </label>
+  <label class="fieldLabel">Password:
+    <input type="password" name="password1" size="12" maxlength="12">    
+  </label>
+    <label class="fieldLabel">Re-enter Password:
+    <input type="password" name="password2" size="12" maxlength="12"> 
+ </fieldset>
+       </label>
+    
+  <div class="buttons">
+    <input type="submit" name="submit" onclick="return validateForm()" value="Create Account" />
+    <input type="reset" name="reset" value="Clear Form" />
+   
+  </div>
+</form> 
+</body>
+</html>
